@@ -33,7 +33,7 @@ class LocationSearchCommand extends ContainerAwareCommand
 
         $query = new LocationQuery();
         $query->filter = new Criterion\ParentLocationId( $location->id );
-        $query->sortClauses[] = new SortClause\LocationPriority(
+        $query->sortClauses[] = new SortClause\Location\Priority(
             LocationQuery::SORT_DESC
         );
 
