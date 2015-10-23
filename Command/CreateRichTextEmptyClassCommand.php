@@ -12,7 +12,7 @@ class CreateRichTextEmptyClassCommand extends ContainerAwareCommand
     {
         $this
             ->setName( 'dp:createemptyclass' )
-            ->setDescription( 'Create RichText with HTML entities' );
+            ->setDescription( 'Create RichText with an element having an empty class attribute' );
     }
 
     protected function execute( InputInterface $input, OutputInterface $output )
@@ -28,7 +28,7 @@ class CreateRichTextEmptyClassCommand extends ContainerAwareCommand
         $parentLocationId = 2;
         $contentTypeIdentifier = 'richtextest';
         $name = "Empty class";
-        $summary = '<section xmlns="http://ez.no/namespaces/ezpublish5/xhtml5/edit"><p>Got an empty class</p></section>';
+        $summary = '<section xmlns="http://ez.no/namespaces/ezpublish5/xhtml5/edit"><p class="">Got an empty class</p></section>';
 
         try
         {
@@ -56,7 +56,6 @@ class CreateRichTextEmptyClassCommand extends ContainerAwareCommand
         catch ( \eZ\Publish\API\Repository\Exceptions\ContentFieldValidationException $e )
         {
             $output->writeln( $e->getMessage() );
-            dump( $e );
         }
         // Required field missing or empty
         catch ( \eZ\Publish\API\Repository\Exceptions\ContentValidationException $e )
